@@ -1,5 +1,7 @@
 package pl.gda.wsb;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -18,9 +20,25 @@ public class Main {
         System.out.println(iPhone.operatingSystem);
 
         Animal cat = new Animal("Tom", "cat", 5.5);
+        StringBuilder heavierAnimalResult = new StringBuilder();
+        heavierAnimalResult.append(heavierAnimal(cat, dog).name);
+        heavierAnimalResult.append(" is heavier");
+        System.out.println(heavierAnimalResult.toString());
 
-        System.out.println(heavierAnimal(cat,dog).name + " is heavier");
+        Human person1 = new Human("John", "Nowak", 30);
+        Human person2 = new Human("Pablo", "Ramirez", 43);
+        Human person3 = new Human("Pablo", "Nowak", 45);
 
+        ArrayList<Human> humanList = new ArrayList<>();
+
+        humanList.add(person1);
+        humanList.add(person2);
+        humanList.add(person3);
+
+        for (Human person: humanList)
+        {
+            System.out.println(person.firstName + " " + person.lastName);
+        }
 
     }
 

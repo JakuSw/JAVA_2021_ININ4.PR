@@ -1,5 +1,7 @@
 package pl.gda.wsb;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
@@ -35,11 +37,20 @@ public class Main {
         humanList.add(person1);
         humanList.add(person2);
         humanList.add(person3);
+        FileWriter fw;
+        try {
+            fw = new FileWriter("persons.txt", true);
+            for (Human person: humanList)
+            {
+                System.out.println(person.firstName + " " + person.lastName);
+                fw.append(person.firstName).append(" ").append(person.lastName).append("\n");
 
-        for (Human person: humanList)
-        {
-            System.out.println(person.firstName + " " + person.lastName);
+            }
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
         humanList.add(person4);
 
     }

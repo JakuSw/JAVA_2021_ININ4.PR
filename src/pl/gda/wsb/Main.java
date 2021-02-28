@@ -28,6 +28,7 @@ public class Main {
         Human person1 = new Human("John", "Nowak", 30);
         Human person2 = new Human("Pablo", "Ramirez", 43);
         Human person3 = new Human("Pablo", "Nowak", 45);
+        Human person4 = new Human("Eduardo", "Nowak", 45);
 
         ArrayList<Human> humanList = new ArrayList<>();
 
@@ -39,6 +40,7 @@ public class Main {
         {
             System.out.println(person.firstName + " " + person.lastName);
         }
+        humanList.add(person4);
 
     }
 

@@ -2,6 +2,7 @@ package pl.gda.wsb;
 
 import pl.gda.wsb.devices.Car;
 
+import java.util.Date;
 import java.util.Objects;
 
 public class Human {
@@ -10,6 +11,23 @@ public class Human {
     Integer age;
     Animal pet;
     Car car;
+
+    public Double getSalary() {
+        System.out.println("Get salary timestamp: " + new Date().toString());
+        return salary;
+    }
+
+    public void setSalary(Double salary) {
+        if (salary <= 0){
+            System.out.println("Salary must be > 0");
+        }
+        this.salary = salary;
+        System.out.println("Salary updated");
+        System.out.println("Please pick up new contract");
+        System.out.println("Contact with ZUS and US about new contract, please do not cheat");
+    }
+
+    private Double salary;
 
     public Human(String firstName, String lastName, Integer age, Animal pet, Car car) {
         this.firstName = firstName;

@@ -11,7 +11,7 @@ public class Main {
 
         System.out.println(dog1.equals(dog2));
 
-        Car car = new Car("X", Brands.Tesla, true);
+        Car car = new Car("X", Brands.Tesla, true, 50000.00);
         Human human1 = new Human("John", "Smith", 25, dog1, car);
         Human human2 = new Human("John", "Smith", 25, dog1, car);
 

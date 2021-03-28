@@ -1,5 +1,7 @@
 package pl.gda.wsb;
 
+import pl.gda.wsb.devices.Car;
+
 public class Main {
 
     public static void main(String[] args) {

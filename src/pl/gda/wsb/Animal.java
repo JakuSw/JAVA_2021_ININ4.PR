@@ -1,5 +1,7 @@
 package pl.gda.wsb;
 
+import java.util.Objects;
+
 public class Animal {
     String name;
     final String species;
@@ -32,5 +34,23 @@ public class Animal {
     public void takeForAWalk(){
         if(this.weight > 0)
             this.weight -= 0.5;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Animal animal = (Animal) o;
+        return Double.compare(animal.weight, weight) == 0 && name.equals(animal.name) && species.equals(animal.species);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, species, weight);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("name: %s, species: %s", name, species);
     }
 }

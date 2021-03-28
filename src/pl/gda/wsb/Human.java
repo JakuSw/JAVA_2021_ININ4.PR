@@ -10,7 +10,26 @@ public class Human {
     String lastName;
     Integer age;
     Animal pet;
-    Car car;
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        if (car.getValue() > salary){
+            System.out.println("You have a new car!");
+            this.car = car;
+        }
+        else if(salary > car.getValue()/12){
+            System.out.println("You have a new car and credit");
+            this.car = car;
+        }
+        else {
+            System.out.println("Car is too expensive, consider car sharing");
+        }
+    }
+
+    private Car car;
 
     public Double getSalary() {
         System.out.println("Get salary timestamp: " + new Date().toString());

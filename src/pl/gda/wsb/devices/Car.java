@@ -8,11 +8,17 @@ public class Car {
     final String model;
     final Brands producer;
     boolean isGreen;
+    double value;
 
-    public Car(String model, Brands producer, boolean isGreen){
+    public double getValue() {
+        return value;
+    }
+
+    public Car(String model, Brands producer, boolean isGreen, double value){
         this.model = model;
         this.producer = producer;
         this.isGreen = isGreen;
+        this.value = value;
     }
 
     @Override

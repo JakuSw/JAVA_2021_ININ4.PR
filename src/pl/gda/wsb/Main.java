@@ -13,6 +13,8 @@ public class Main {
         Human human2 = new Human("John", "Smith", 25, dog1, car);
         System.out.println(human1.toString());
         System.out.println(human2.toString());
+        System.out.println(human1.hashCode());
+        System.out.println(human2.hashCode());
 
     }
 

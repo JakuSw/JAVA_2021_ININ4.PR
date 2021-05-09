@@ -4,5 +4,6 @@ public enum Brands {
     Tesla,
     VW,
     Mercedes,
-    Audi
+    Audi,
+    Apple
 }

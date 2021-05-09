@@ -1,10 +1,12 @@
 package pl.gda.wsb.devices;
 
 import pl.gda.wsb.Brands;
+import pl.gda.wsb.creatures.Human;
+import pl.gda.wsb.ISellable;
 
 import java.util.Objects;
 
-public class Car extends Device {
+public class Car extends Device implements ISellable {
     boolean isGreen;
     double value;
 
@@ -43,5 +45,26 @@ public class Car extends Device {
     @Override
     public void turnOn() {
         System.out.println("Car is on");
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if (seller.getCar() == null) {
+            System.out.println("seller don't have a car");
+            return;
+        }
+        if (buyer.getCar() != null) {
+            System.out.println("buyer already have a car");
+            return;
+        }
+        if (buyer.getCash() < price){
+            System.out.println("buyer don't have enough cash");
+            return;
+        }
+        buyer.setCash(buyer.getCash() + price);
+        seller.setCash(seller.getCash() - price);
+        buyer.buyCar(seller.getCar());
+        seller.sellCar();
+        System.out.println("Car sold");
     }
 }

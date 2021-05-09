@@ -1,33 +1,35 @@
-package pl.gda.wsb;
+package pl.gda.wsb.creatures;
 
 import pl.gda.wsb.devices.Car;
+import pl.gda.wsb.devices.Phone;
 
 import java.util.Date;
 import java.util.Objects;
 
-public class Human {
+public class Human extends Animal
+{
     String firstName;
     String lastName;
     Integer age;
     Animal pet;
+    Double cash;
+    Phone phone;
 
     public Car getCar() {
         return car;
     }
-
-    public void setCar(Car car) {
-        if (car.getValue() > salary){
-            System.out.println("You have a new car!");
-            this.car = car;
-        }
-        else if(salary > car.getValue()/12){
-            System.out.println("You have a new car and credit");
-            this.car = car;
-        }
-        else {
-            System.out.println("Car is too expensive, consider car sharing");
-        }
+    public Double getCash() {
+        return cash;
     }
+    public void setCash(Double newCash) { this.cash = newCash; }
+    public void buyCar(Car car) { this.car = car; }
+    public void sellCar() { this.car = null; }
+    public Phone getPhone() { return phone; }
+    public void setPhone(Phone phone) { this.phone = phone; }
+    public Animal getAnimal() { return pet; }
+    public void setAnimal(Animal pet) { this.pet = pet;}
+
+    public void setCar(Car car) { this.car = car; }
 
     private Car car;
 
@@ -48,12 +50,12 @@ public class Human {
 
     private Double salary;
 
-    public Human(String firstName, String lastName, Integer age, Animal pet, Car car) {
+    public Human(String firstName, String lastName, Integer age, Double cash) {
+        super(firstName+" "+lastName,"Human");
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.pet = pet;
-        this.car = car;
+        this.cash = cash;
     }
 
     @Override
@@ -76,5 +78,10 @@ public class Human {
     @Override
     public int hashCode() {
         return Objects.hash(firstName, lastName, age);
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        System.out.println("Selling humans is not allowed");
     }
 }

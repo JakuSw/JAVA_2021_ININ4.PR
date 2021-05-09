@@ -1,8 +1,10 @@
-package pl.gda.wsb;
+package pl.gda.wsb.creatures;
+
+import pl.gda.wsb.ISellable;
 
 import java.util.Objects;
 
-public class Animal {
+public class Animal implements ISellable {
     String name;
     final String species;
 
@@ -52,5 +54,26 @@ public class Animal {
     @Override
     public String toString() {
         return String.format("name: %s, species: %s", name, species);
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if (seller.getAnimal() == null) {
+            System.out.println("seller don't have a pet");
+            return;
+        }
+        if (buyer.getAnimal() != null) {
+            System.out.println("buyer already have a pet");
+            return;
+        }
+        if (buyer.getCash() < price){
+            System.out.println("buyer don't have enough cash");
+            return;
+        }
+        buyer.setCash(buyer.getCash() + price);
+        seller.setCash(seller.getCash() - price);
+        buyer.setAnimal(seller.getAnimal());
+        seller.setAnimal(null);
+        System.out.println("Pet sold");
     }
 }

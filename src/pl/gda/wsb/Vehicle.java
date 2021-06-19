@@ -8,14 +8,20 @@ public abstract class Vehicle {
     private int price;
     private double combustion;
     private double fuelInLiters;
-    private int odometer;
+    private double odometer;
 
     public void Tank(){
         System.out.printf("%s is tanked%n", this.name);
     }
 
-    public void Drive(){
-        System.out.printf("%s is in move%n", this.name);
+    public void Drive(double road, double combustion){
+        if (getRangeRemaining(combustion) < road){
+            System.out.printf("You need more fuel to pass %f km %n", road);
+        }
+        else {
+            System.out.printf("%s is in move%n", this.name);
+            this.fuelInLiters -= combustion;
+        }
     }
 
     public void Range(){
@@ -24,5 +30,9 @@ public abstract class Vehicle {
 
     private double getRangeRemaining() {
         return this.fuelInLiters / this.combustion;
+    }
+
+    private double getRangeRemaining(double combustion) {
+        return this.fuelInLiters / combustion;
     }
 }

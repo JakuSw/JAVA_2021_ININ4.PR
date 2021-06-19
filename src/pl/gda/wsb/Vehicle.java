@@ -10,7 +10,8 @@ public abstract class Vehicle {
     private double fuelInLiters;
     private double odometer;
 
-    public void Tank(){
+    public void Tank(double litersOfFuel){
+        this.fuelInLiters += litersOfFuel;
         System.out.printf("%s is tanked%n", this.name);
     }
 

@@ -5,7 +5,7 @@ public abstract class Vehicle {
     private String registrationPlate;
     private String VINNumber;
     private String color;
-    private int price;
+    private double price;
     private double combustion;
     private double fuelInLiters;
     private double odometer;
@@ -43,6 +43,11 @@ public abstract class Vehicle {
 
     public void Range(){
         System.out.printf("Range left %f %m", getRangeRemaining());
+    }
+
+    public void ChangeColor(String color){
+        this.color = color;
+        this.price = this.price * 1.05;
     }
 
     private double getRangeRemaining() {

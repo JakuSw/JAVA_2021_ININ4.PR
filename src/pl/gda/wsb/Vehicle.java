@@ -11,6 +11,30 @@ public abstract class Vehicle {
     private double odometer;
     private double tankCapacity;
 
+    public Vehicle(String name,
+                   String registrationPlate,
+                   String VINNumber,
+                   String color,
+                   double price,
+                   double combustion,
+                   double fuelInLiters,
+                   double odometer,
+                   double tankCapacity) {
+        this.name = name;
+        this.registrationPlate = registrationPlate;
+        this.VINNumber = VINNumber;
+        this.color = color;
+        this.price = price;
+        this.combustion = combustion;
+        this.fuelInLiters = fuelInLiters;
+        this.odometer = odometer;
+        this.tankCapacity = tankCapacity;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public void Tank(double litersOfFuel){
         if (canBeTanked(litersOfFuel)) {
             this.fuelInLiters = tankCapacity;
@@ -28,7 +52,7 @@ public abstract class Vehicle {
 
     public void TankToMaximum(){
         this.fuelInLiters = tankCapacity;
-        System.out.printf("%s is tanked%n", this.name);
+        System.out.printf("%s is tanked to maximum%n", this.name);
     }
 
     public void Drive(double road, double combustion){
@@ -42,7 +66,7 @@ public abstract class Vehicle {
     }
 
     public void Range(){
-        System.out.printf("Range left %f %m", getRangeRemaining());
+        System.out.printf("Range left %f km %n", getRangeRemaining());
     }
 
     public void ChangeColor(String color){

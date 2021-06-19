@@ -9,9 +9,25 @@ public abstract class Vehicle {
     private double combustion;
     private double fuelInLiters;
     private double odometer;
+    private double tankCapacity;
 
     public void Tank(double litersOfFuel){
-        this.fuelInLiters += litersOfFuel;
+        if (canBeTanked(litersOfFuel)) {
+            this.fuelInLiters = tankCapacity;
+            System.out.printf("Fuel tank is full");
+        }
+        else{
+            this.fuelInLiters += litersOfFuel;
+            System.out.printf("%s is tanked%n", this.name);
+        }
+    }
+
+    private boolean canBeTanked(double litersOfFuel) {
+        return (litersOfFuel + this.fuelInLiters) > tankCapacity;
+    }
+
+    public void TankToMaximum(){
+        this.fuelInLiters = tankCapacity;
         System.out.printf("%s is tanked%n", this.name);
     }
 

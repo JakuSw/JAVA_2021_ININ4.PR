@@ -6,15 +6,23 @@ public abstract class Vehicle {
     private String VINNumber;
     private String color;
     private int price;
-    private String combustion;
-    private int fuelInLiters;
+    private double combustion;
+    private double fuelInLiters;
     private int odometer;
 
     public void Tank(){
-        System.out.printf("%s is tanked", this.name);
+        System.out.printf("%s is tanked%n", this.name);
     }
 
     public void Drive(){
-        System.out.printf("%s is in move", this.name);
+        System.out.printf("%s is in move%n", this.name);
+    }
+
+    public void Range(){
+        System.out.printf("Range left %f %m", getRangeRemaining());
+    }
+
+    private double getRangeRemaining() {
+        return this.fuelInLiters / this.combustion;
     }
 }
